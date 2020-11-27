@@ -1,0 +1,41 @@
+<div class="container-fluid bg-white">
+    <div class="row">
+        <div class="col-sm-12">
+            <p class="text-left">
+                At the first step, I cleaned the tweets to remove the words which do not add meaning or context. I used the Term Frequency Inverse Document Frequency (TF-IDF) approach for feature generation.
+                We run 3 classification algorithms, namely Naive Bayes, Logistic Regression, and Random Forest.
+            </p>
+            <p class="text-center"><strong>Machine Learning models' performance for OLID dataset</strong></p>
+                <p class="text-left">
+                    For OLID dataset accuracy metric is not the appropriate metric because of imbalanced data (The offensive tweets is around half of non-offensive tweets).
+                    Thus to choose the best model we are using the macro f1-score and recall metrics. Based on our experiments the Logistic Regression outperforms compared to the two other classifiers.
+
+                </p>
+
+            <p class="text-center"><strong>Machine Learning models' performance after combing two datasets</strong></p>
+                <p class="text-left">
+                    In this project increasing the recall parameter for offensive tweets is very essential. We are interested in to detect as much as possible the offensive tweets.
+                    To increase the recall parameter we use the second dataset. We randomly sampled from clean and offensive tweets and combined them with OLID dataset to have one larger balanced dataset.
+                    In this case, accuracy metric can be considered as an appropriate parameters to compare the classifiers. The results shows that both LR and RF have 85% accuracy
+                    although recall parameter a little bit higher for Logistic Regression.
+                </p>
+        </div>
+    </div>
+</div>
+        <figure class="full">
+                    <table>
+                        <tr>
+                            <td>
+                                <img style="width:450px;" src="{{ url_for('static', filename='classifier_comparision_OLID.svg') }}">
+                            </td>
+
+                              <td>
+                                <img style="width:450px;" src="{{ url_for('static', filename='classifier_comparision_twoDataset.svg') }}">
+                            </td>
+
+                        </tr>
+                    </table>
+                        <figcaption>Comparing the three classifiers in OLID dataset and combination of two datasets</figcaption>
+                </figure>
+
+
